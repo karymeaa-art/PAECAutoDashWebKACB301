@@ -1,16 +1,14 @@
-# React + Vite
+# PAECAutoDashWebKACB301
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+AutoDash Web es una aplicación web diseñada como tablero digital para un vehículo eléctrico solar de dos plazas. Integra funciones de visualización de información, navegación, mantenimiento y reproducción multimedia, promoviendo la movilidad sustentable, la seguridad y la interacción intuitiva con el usuario.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este proyecto usa React y Vite. Para iniciar el servidor de desarrollo:
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Consulta la documentación de [Vite](https://vite.dev/) y [React](https://react.dev/) para más información.
