@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
 import Dashboard from './views/Dashboard'
+import Maintenance from './views/Maintenance'
 import NavigationPanel from './components/NavigationPanel'
 import { getThemeVariables, themePresets } from './theme/themeConfig'
 
@@ -243,29 +244,7 @@ function App() {
             </section>
 
             <section className="tab-panel">
-              <div className="section-mockup maintenance-mockup">
-                <div className="section-header">
-                  <span className="chip chip-green">Mantenimiento</span>
-                </div>
-
-                <div className="kanban-grid">
-                  <div className="kanban-column">
-                    <h3>Por revisar</h3>
-                    <div className="kanban-task task-warning">Sistema de frenos</div>
-                    <div className="kanban-task">Estado de llantas</div>
-                  </div>
-                  <div className="kanban-column">
-                    <h3>En curso</h3>
-                    <div className="kanban-task task-primary">Panel solar</div>
-                    <div className="kanban-task">Batería principal</div>
-                  </div>
-                  <div className="kanban-column">
-                    <h3>Completado</h3>
-                    <div className="kanban-task task-success">Limpieza del chasis</div>
-                    <div className="kanban-task task-success">Diagnóstico GPS</div>
-                  </div>
-                </div>
-              </div>
+              <Maintenance />
             </section>
 
             <section className="tab-panel">
