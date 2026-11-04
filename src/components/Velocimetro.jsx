@@ -83,6 +83,22 @@ function Velocimetro({ onSpeedChange, onDistanceSample }) {
         latitude: Number(position?.coords?.latitude),
         longitude: Number(position?.coords?.longitude),
       }
+      const hasValidCoords =
+        Number.isFinite(coords.latitude) &&
+        Number.isFinite(coords.longitude) &&
+        coords.latitude >= -90 &&
+        coords.latitude <= 90 &&
+        coords.longitude >= -180 &&
+        coords.longitude <= 180
+
+      if (!hasValidCoords) {
+        setGeoStatus('GPS sin coordenadas válidas')
+        previousPositionRef.current = null
+        distancePositionRef.current = null
+        smoothedSamplesRef.current = []
+        return
+      }
+
       const previousPosition = previousPositionRef.current
       const nextVelocity = resolverVelocidadDesdePosicion(position, previousPosition)
 
@@ -171,7 +187,7 @@ function Velocimetro({ onSpeedChange, onDistanceSample }) {
     })
 
     return () => navigator.geolocation.clearWatch(watchId)
-  }, [onSpeedChange])
+  }, [onSpeedChange, onDistanceSample])
 
   const updateSpeed = (nextValue) => {
     const parsed = Number(nextValue)

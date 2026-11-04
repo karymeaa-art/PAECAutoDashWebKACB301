@@ -22,9 +22,15 @@ function ControlBateria({
     setAutonomyInput(String(autonomyKm))
   }, [autonomyKm])
 
-  const estimatedBattery = calculateBatteryEstimate(tripDistanceKm, autonomyKm, initialBattery)
+  const estimatedBattery = calculateBatteryEstimate(
+    tripActive ? tripDistanceKm : 0,
+    autonomyKm,
+    tripActive ? initialBattery : value,
+  )
   const safeValue = clampBatteryPercent(value ?? estimatedBattery.remainingPercent)
-  const remainingPercent = clampBatteryPercent(estimatedBattery.remainingPercent)
+  const remainingPercent = clampBatteryPercent(
+    tripActive ? estimatedBattery.remainingPercent : safeValue,
+  )
   const batteryValue = Math.round(remainingPercent)
 
   let batteryMode = 'battery--high'

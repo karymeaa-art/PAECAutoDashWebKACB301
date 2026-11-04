@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import {
   calculateBatteryEstimate,
   calculateDistanceKm,
+  clampBatteryPercent,
   isMeaningfulPositionChange,
   normalizeAutonomyKm,
   obtenerVelocidadGPS,
@@ -110,4 +111,16 @@ test('calcula el consumo desde la carga inicial real de la batería', () => {
   assert.equal(result.consumedPercent, 30)
   assert.equal(result.remainingPercent, 30)
   assert.equal(result.remainingKm, 3)
+})
+
+test('mantiene la batería dentro de 0-100% ante distancias y cargas límite', () => {
+  const depleted = calculateBatteryEstimate(1000, 10, 150)
+  const unchanged = calculateBatteryEstimate(-3, 10, 50)
+
+  assert.equal(depleted.remainingPercent, 0)
+  assert.equal(depleted.consumedPercent, 100)
+  assert.equal(unchanged.remainingPercent, 50)
+  assert.equal(unchanged.consumedPercent, 0)
+  assert.equal(clampBatteryPercent(120), 100)
+  assert.equal(clampBatteryPercent(-10), 0)
 })
