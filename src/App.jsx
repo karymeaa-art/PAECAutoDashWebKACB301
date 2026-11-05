@@ -5,6 +5,7 @@ import Dashboard from './views/Dashboard'
 import Maintenance from './views/Maintenance'
 import NavigationPanel from './components/NavigationPanel'
 import { getThemeVariables, themePresets } from './theme/themeConfig'
+import MultimediaWorkspace from './views/MultimediaWorkspace'
 
 const tabs = [
   { label: 'Inicio', icon: '⌂' },
@@ -248,37 +249,7 @@ function App() {
             </section>
 
             <section className="tab-panel">
-              <div className="section-mockup multimedia-mockup">
-                <div className="section-header">
-                  <span className="chip chip-cyan">Multimedia</span>
-                </div>
-
-                <div className="media-player">
-                  <div className="album-art" />
-                  <div className="track-meta">
-                    <p>Reproduciendo</p>
-                    <strong>Road Trip Solar</strong>
-                    <span>Playlist de viaje</span>
-                  </div>
-                </div>
-
-                <div className="player-controls">
-                  <span>◀</span>
-                  <span className="play-button">▶</span>
-                  <span>▶▶</span>
-                </div>
-
-                <div className="progress-bar">
-                  <span />
-                </div>
-
-                <div className="media-grid">
-                  <div className="media-card">Podcast</div>
-                  <div className="media-card">Audiolibro</div>
-                  <div className="media-card">FM / Radio</div>
-                  <div className="media-card">Spotify</div>
-                </div>
-              </div>
+              <MultimediaWorkspace />
             </section>
 
             <section className="tab-panel">
